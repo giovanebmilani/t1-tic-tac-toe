@@ -1,5 +1,40 @@
 from typing import List
 
+from sklearn.neighbors import KNeighborsClassifier
+
+K = 31
+
+knn = KNeighborsClassifier(n_neighbors=K)
+
+
+def read_data(filename: str):
+	with open(filename, 'r') as file:
+		lines = file.readlines()
+	formated = []
+	for line in lines:
+		line = line.split(',')
+		new_line = []
+		for char in line:
+			new_line.append(int(char))
+		formated.append(new_line)
+	return formated
+
+
+data = read_data('training.data')
+
+training_data = []
+classes = []
+
+for d in data:
+	training_data.append(d[:-1])
+	classes.append(d[-1])
+
+knn.fit(training_data, classes)
+
+
+print(knn.predict([[1,1,-1,-1,1,1,1,-1,-1]]))
+
+
 
 class Knn:
 	K = 3
