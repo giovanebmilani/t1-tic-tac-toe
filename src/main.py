@@ -45,6 +45,19 @@ class TicTacToe:
 			if i < 6 and i % 3 == 0:
 				print('---|---|---')
 
+	def get_ai_predict(self):
+		ai = self.current_algo['algo']
+		return ai.predict([self.tictactoe])[0]
+	
+	def get_formatted_ai_predict(self):
+		predict = self.get_ai_predict()
+		if predict == 0:
+			return 'WIN'
+		elif predict == 1:
+			return 'DRAW'
+		elif predict == 2:
+			return 'ONGOING'
+
 	def run(self):
 		while True:
 			print('=== TIC TAC TOE ===')
@@ -66,8 +79,12 @@ class TicTacToe:
 					print('\n')
 					print(f'Algo is {self.current_algo["name"]}')
 					print('\n')
+
 					self.print_game()
+					print('\n')
+					print(f'AI predict: {self.get_formatted_ai_predict()}')
 					self.round()
+
 					os.system('clear')
 
 if __name__ == '__main__':
