@@ -1,3 +1,4 @@
+from mlp.main import mlp
 
 algorithms = [
     {
@@ -7,6 +8,7 @@ algorithms = [
     {
         'id': 2,
         'name': 'Multiple Layer Perceptron',
+        'algo': mlp
 	},
     {
         'id': 3,

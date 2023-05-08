@@ -20,7 +20,7 @@ mlp = MLPClassifier(hidden_layer_sizes=(5, 2), activation='relu', solver='lbfgs'
 
 mlp.fit(training_x, training_y)
 
-accuracy = mlp.score(testing_x, testing_y)
+# accuracy = mlp.score(testing_x, testing_y)
 
 # print("Number of iterations:", mlp.n_iter_)
 # print("Acuracia da MLP: {:.2f}%".format(accuracy * 100))
