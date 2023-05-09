@@ -11,6 +11,7 @@ class TicTacToe:
 		self.turn = 'X'
 
 	def start_game(self):
+		self.turn = 'X'
 		self.tictactoe = [
 			0, 0, 0,
 			0, 0, 0,
@@ -28,7 +29,10 @@ class TicTacToe:
 			self.turn = 'X'
 
 		while True:
-			play = input("Insert position to play: ")
+			play = input("Insert position to play or indicate 'error': ")
+
+			if play == 'error':
+				self.current_algo['errors'] += 1
 
 			if play.isnumeric():
 				play = int(play)
@@ -83,16 +87,34 @@ class TicTacToe:
 				self.start_game()
 				while self.current_algo is not None:
 					print('\n')
+					iterations = self.current_algo["iterations"]
+					errors = self.current_algo["errors"]
 					print(f'Algo is {self.current_algo["name"]}')
+					if iterations > 0:
+						print(f'Iterations: {iterations}')
+						print(f'❌ {round(errors/iterations*100, 2)}% | ✅ {round((1-errors/iterations)*100,2)}%')
 					print('\n')
 
 					self.print_game()
 					print('\n')
 					print(f'AI predict: {self.get_formatted_ai_predict()}')
+
+					self.current_algo['iterations'] += 1
+
+					ia_predict = self.get_ai_predict()
+					if ia_predict == 0 or ia_predict == 1:
+						user_input = input('IA predict is right (y/n)?')
+						if user_input == 'y':
+							print('Game Over.\n\n')
+							break
+						elif user_input == 'n':
+							self.current_algo['errors'] += 1
+							break
+					
 					self.round()
-
+				
 					os.system('clear')
-
+				
 if __name__ == '__main__':
 	tictactoe = TicTacToe(algorithms=algorithms)
 	tictactoe.run()
