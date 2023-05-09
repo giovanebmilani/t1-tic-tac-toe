@@ -6,16 +6,22 @@ algorithms = [
     {
         'id': 1,
         'name': 'K-Nearest-Neighborns',
-        'algo': knn
+        'algo': knn,
+        'iterations': 0,
+        'errors': 0
 	},
     {
         'id': 2,
         'name': 'Multiple Layer Perceptron',
-        'algo': mlp
+        'algo': mlp,
+        'iterations': 0,
+        'errors': 0
 	},
     {
         'id': 3,
         'name': 'Decision Tree',
-        'algo': decision_tree
+        'algo': decision_tree,
+        'iterations': 0,
+        'errors': 0
 	}
 ]
