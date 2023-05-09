@@ -27,9 +27,15 @@ class TicTacToe:
 			playing = -1
 			self.turn = 'X'
 
-		play = input("Insert position to play: ")
+		while True:
+			play = input("Insert position to play: ")
 
-		self.tictactoe[int(play)-1] = playing
+			if play.isnumeric():
+				play = int(play)
+				if self.tictactoe[play-1] == 0:
+					break
+
+		self.tictactoe[play-1] = playing
 	
 	def get_string_by_index(self, index: int):
 		if self.tictactoe[index] == 1:

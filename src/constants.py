@@ -1,5 +1,6 @@
 from mlp.main import mlp
 from knn.main import knn
+from decision_tree.main import decision_tree
 
 algorithms = [
     {
@@ -14,6 +15,7 @@ algorithms = [
 	},
     {
         'id': 3,
-        'name': 'Terceiro Fodasse',
+        'name': 'Decision Tree',
+        'algo': decision_tree
 	}
 ]

@@ -2,8 +2,8 @@ from sklearn.tree import DecisionTreeClassifier
 import pandas as pd
 
 # dataset para treinamento e teste
-training_data = pd.read_csv("src/data/trainingCerto.data", header=None)
-testing_data = pd.read_csv("src/data/testingCerto.data", header=None)
+training_data = pd.read_csv("src/data/training.data", header=None)
+testing_data = pd.read_csv("src/data/testing.data", header=None)
 
 # separando dados das classes
 training_x = training_data.iloc[:, :-1]
