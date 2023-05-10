@@ -102,13 +102,18 @@ class TicTacToe:
 					self.current_algo['iterations'] += 1
 
 					ia_predict = self.get_ai_predict()
+
+					user_input = input('is IA prediction right (y/n)?')
+
+					if user_input == 'n':
+						self.current_algo['errors'] += 1
+						if ia_predict == 2:
+							print('\n\n')
+							break
+
 					if ia_predict == 0 or ia_predict == 1:
-						user_input = input('IA predict is right (y/n)?')
 						if user_input == 'y':
 							print('Game Over.\n\n')
-							break
-						elif user_input == 'n':
-							self.current_algo['errors'] += 1
 							break
 					
 					self.round()
