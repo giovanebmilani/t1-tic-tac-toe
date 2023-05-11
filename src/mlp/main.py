@@ -16,7 +16,7 @@ testing_y = testing_data.iloc[:, -1]
 # criando nossa MLP
 # activation controla a função de ativação
 # tol parametro para controlar a saida das epocas caso a melhora do algoritmo nao seja maior que esse numero
-mlp = MLPClassifier(hidden_layer_sizes=(30, 30), max_iter=3000, tol=1e-5)
+mlp = MLPClassifier(hidden_layer_sizes=(30), max_iter=3000, tol=1e-5)
 
 mlp.fit(training_x, training_y)
 
